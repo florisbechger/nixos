@@ -1,2 +1,2 @@
 # nixos
-My NixOS configurations (small snippets)
+NixOS configurations (small snippets)
