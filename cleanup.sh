@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # NixOS cleanup
 nix-collect-garbage -d
