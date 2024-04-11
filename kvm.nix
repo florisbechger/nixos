@@ -3,7 +3,6 @@
 
   environment.systemPackages = with pkgs; [
 
-    # KVM
     bridge-utils
     cdrtools
     guestfs-tools
