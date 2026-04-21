@@ -21,7 +21,7 @@
 6) Notice
 
 - Allways choose a 'boot' and 'laptop' or 'vm1' file in your configuration.nix & simply comment out what you want to install in configuration.nix
-- Change or rename module files when needed and reference them in your configuration.nix file
+- Add, change or rename module files when needed and reference them in your configuration.nix file
 - Adjust your hardware-configuration.nix in /etc/nixos only if needed, otherwise do not overwrite it if it is allready configured!
 
 7) Enjoy NixOS
