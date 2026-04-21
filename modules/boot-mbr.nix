@@ -1,0 +1,9 @@
+{ config, ... }:
+
+{
+  # Bootloader MBR.
+  boot.loader.grub = {
+    enable = true;
+    #devices = ["/dev/vda"];
+  };
+}
