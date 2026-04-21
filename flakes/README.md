@@ -1,6 +1,6 @@
 # nixos
 
-! FLAKES
+# FLAKES
 
 Read the flakes.txt to install a complete virtual server in KVM (a virtual libvirtd/qemu environment).
 
