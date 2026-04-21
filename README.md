@@ -2,12 +2,26 @@
 
 # Some examples to get you started with NixOS
 
-Create a working laptop/server with these example configuration.nix and modules.
-Copy files to your /etc/nixos directory and issue this command:
+1) Download the Graphical ISO image from https://nixos.org/download and install this in a virtual machine or on hardware.
 
-sudo nixos-rebuild switch
+2) Create a working laptop/server with these example configuration.nix and modules:
 
-Allways choose a 'boot' and 'laptop/vm1' file in your config &
-Simply comment out what you want to install in configuration.nix
+- Copy configuration.nix to your local /etc/nixos directory
 
-(Adjust your hardware-configuration if needed, otherwise do not overwrite it if it is allready configured in /etc/nixos/)
+
+3) Create 
+
+- Create a directory "modules" in this directory
+/i sudo mkdir /etc/nixos/modules i/
+- Copy all /module files to your local /etc/nixos/modules directory
+- Create a directory "modules" in this directory
+/i sudo mkdir /etc/nixos/modules i/
+
+4) Issue this command:
+
+/i sudo nixos-rebuild switch i/
+
+5) Notice
+
+- Allways choose a 'boot' and 'laptop/vm1' file in your config & simply comment out what you want to install in configuration.nix
+- Adjust your hardware-configuration.nix in /etc/nixos only if needed, otherwise do not overwrite it if it is allready configured!
