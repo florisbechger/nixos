@@ -2,7 +2,7 @@
 
 # FLAKES
 
-!Create a remote server on KVM
+! Create a remote server on KVM
 
 0) Spin up a minimal NixOS VM and copy its IP address
 
