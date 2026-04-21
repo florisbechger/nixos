@@ -1,5 +1,6 @@
 
-# Create by local gpt
+# Untested
+# Created by local gpt
 
 { pkgs ? import <nixpkgs> {} }:
 
