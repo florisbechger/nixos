@@ -6,9 +6,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
       ./modules/laptop.dhcp.nix
       ./modules/laptop.nix
-      ./modules/p43s.nix
+      ./modules/p43s.nix # Lenovo
       ./modules/boot-esp.nix
       ./modules/bluetooth.nix
       ./modules/clamav.nix
@@ -22,7 +23,6 @@
       ./modules/kvm.nix
       ./modules/flatpak.nix
       ./modules/flakes.nix
-      ./modules/mega.nix
     ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
