@@ -8,8 +8,7 @@
 
 - Copy configuration.nix to your local /etc/nixos directory
 
-
-3) Create 
+3) Copy modules
 
 - Create a directory "modules" in this directory
 /i sudo mkdir /etc/nixos/modules i/
