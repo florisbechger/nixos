@@ -2,9 +2,11 @@
 
 # FLAKES
 
-Read the flakes.txt to install a complete virtual server in KVM (a virtual libvirtd/qemu environment) or on physical hardware.
+!Create a remote server on KVM
 
-1) To sepearate Flakes from your main Deploy (inside /etc/nixos) you need to create a local folder in your Home directory:
+0) Spin up a minimal NixOS VM and copy its IP address
+
+1) To sepearate Flakes from your Host (inside /etc/nixos) you need to create a local folder in your Home directory:
 
 - mkdir -p /home/[username]/nixos/flakes
 
@@ -21,4 +23,6 @@ Read the flakes.txt to install a complete virtual server in KVM (a virtual libvi
 
 5) Notice
 
+- Copy commands from flake.txt and adjust IP
+- Adjust your settings in flake.nix
 - 'flake.nix' can not find a file in the previous folder
