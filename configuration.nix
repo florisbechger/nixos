@@ -9,7 +9,6 @@
 
       ./modules/laptop.dhcp.nix
       ./modules/laptop.nix
-      ./modules/p43s.nix # Lenovo
       ./modules/boot-esp.nix
       ./modules/bluetooth.nix
       ./modules/clamav.nix
