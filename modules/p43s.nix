@@ -1,3 +1,5 @@
+# for Lenovo P43S
+
 { config, lib, ... }:
 
 {
