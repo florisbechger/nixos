@@ -1,0 +1,39 @@
+
+# https://nix-community.github.io/nixos-anywhere
+# https://nix-community.github.io/nixos-anywhere/howtos/INDEX.html
+# https://github.com/nix-community/nixos-anywhere-examples/blob/main/flake.nix
+
+## Provision Remote on Workstation (https://galowicz.de/2023/04/05/single-command-server-bootstrap):
+nix flake show
+nix flake update
+
+nix run github:nix-community/nixos-anywhere -- admin@192.168.122.x --flake .#vm1
+
+# Regenerate hardware-configuration.nix on Remote system, usefull for external hardware:
+nixos-generate-config --show-hardware-config > /etc/nixos/hardware-configuration.nix
+# or, during Provisioning:
+nix run github:nix-community/nixos-anywhere -- --generate-hardware-config ./hardware-configuration.nix --nixos-generate-config>
+
+# Update Remote system with update flake.nix:
+nixos-rebuild switch --flake .#vm1 --target-host root@192.168.122.x
+
+## On Workstation:
+
+# Setup keys
+ssh-keygen -t ecdsa -b 521 -f ~/.ssh/floris
+ssh-copy-id -i ~/.ssh/floris.pub root@192.168.122.69
+
+# Setup in configuration.nix
+# Enable Flakes
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+## On Remote if nescesarry:
+umount /dev/vda1
+umount /dev/vda2
+umount /dev/vda3
+#wipefs -a /dev/vda # Wipe disk
+#wipefs -a /dev/nvme0n1 # Wipe disk
+
+# Get ISO examples:
+wget https://channels.nixos.org/nixos-25.11/latest-nixos-minimal-x86_64-linux.iso
+wget https://deb.debian.org/debian/dists/trixie/main/installer-amd64/current/images/netboot/mini.iso
