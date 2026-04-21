@@ -1,5 +1,6 @@
 # nixos
-Examples
+
+! Some examples to get you started with NixOS
 
 Create a working laptop/server with these example configuration.nix and modules.
 Copy files to your /etc/nixos directory and issue this command:
@@ -9,4 +10,4 @@ Copy files to your /etc/nixos directory and issue this command:
 Allways choose a 'boot' and 'laptop/vm1' file in your config &
 Simply comment out what you want to install (tested configurations)
 
-# ! Adjust your hardware-configuration if needed, otherwise do not overwrite it if it is allready configured in /etc/nixos/
+# Adjust your hardware-configuration if needed, otherwise do not overwrite it if it is allready configured in /etc/nixos/
