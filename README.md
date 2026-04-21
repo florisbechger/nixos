@@ -10,15 +10,15 @@
 
 3) Copy modules
 
-- Create a directory "modules" in this directory
-/i sudo mkdir /etc/nixos/modules i/
+- Create a directory "modules" in this directory:
+
+sudo mkdir /etc/nixos/modules
+
 - Copy all /module files to your local /etc/nixos/modules directory
-- Create a directory "modules" in this directory
-/i sudo mkdir /etc/nixos/modules i/
 
 4) Issue this command:
 
-/i sudo nixos-rebuild switch i/
+sudo nixos-rebuild switch
 
 5) Notice
 
