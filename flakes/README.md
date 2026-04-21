@@ -8,9 +8,12 @@ Read the flakes.txt to install a complete virtual server in KVM (a virtual libvi
 
 - mkdir -p /home/[username]/nixos/flakes
 
-2) Create also a new 'modules' directory. This can be a copy of the original /etc/nixos/modules folder:
+2) Copy modules
 
-- mkdir -p /home/[username]/nixos/flakes/modules
+- Create a directory "modules" in this directory and copy .nix files into it:
+/i sudo mkdir -p /home/[username]/nixos/flakes/modules i/
+/i sudo cp /etc/nixos/modules/*.nix /home/[username]/nixos/flakes/modules
+(This can be a copy of the original /etc/nixos/modules folder)
 
 3) Notice
 
