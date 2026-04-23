@@ -1,4 +1,3 @@
-# Example
 
 { config, pkgs, ... }:
 
@@ -6,22 +5,26 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/alsa.nix
+      ./modules/applications.nix
+      ./modules/bluetooth.nix
+
+      ./modules/boot-esp.nix
+      ./modules/clamav.nix
+      ./modules/firewall.nix
+      ./modules/flakes.nix
+      ./modules/flatpak.nix
+      ./modules/gnome.nix
+      ./modules/kvm.nix
 
       ./modules/laptop.dhcp.nix
       ./modules/laptop.nix
-      ./modules/boot-esp.nix
-      ./modules/bluetooth.nix
-      ./modules/clamav.nix
-      ./modules/firewall.nix
-      ./modules/print.nix
-      ./modules/alsa.nix
-      ./modules/gnome.nix
       ./modules/packages.nix
-      ./modules/applications.nix
+      ./modules/print.nix
       ./modules/services.nix
-      ./modules/kvm.nix
-      ./modules/flatpak.nix
-      ./modules/flakes.nix
+
+      ./misc/p43s.nix
+      ./misc/mega.nix
     ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
