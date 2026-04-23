@@ -17,22 +17,16 @@
             "${modulesPath}/profiles/qemu-guest.nix"
             disko.nixosModules.disko
 
-            ./modules/vm1.nix
-            ./modules/vm1.dhcp.nix
-            #./modules/vm1.static.nix
-            #./modules/vm1.bridged.nix
-
-            ./modules/boot-mbr.nix # for VM
-            ./modules/disko-mbr.nix # for VM
-            #./modules/disko-extra.nix
-
-            ./modules/users.nix
+            ./modules/boot-mbr.nix # also include disko-mbr.nix for disk preparation
             ./modules/firewall.nix
-            ./modules/services.nix
             ./modules/packages.nix
+            ./modules/services.nix
             ./modules/clamav.nix
 
-            #./modules/ollama2.nix
+            ./misc/disko-mbr.nix
+            ./misc/vm1.nix
+            ./misc/vm1.dhcp.nix
+            ./misc/users.nix
 
           ];
         })
