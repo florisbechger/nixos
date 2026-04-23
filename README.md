@@ -2,7 +2,7 @@
 
 # Some examples to get you started with NixOS
 
-1) Download the Graphical ISO image from https://nixos.org/download and install this in a virtual machine or on hardware.
+1) Download the Graphical ISO image from https://nixos.org/download and install this in a virtual machine or on hardware (laptop as an example here).
 
 2) Create a working laptop/server with these example configuration.nix and modules:
 
