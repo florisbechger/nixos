@@ -23,8 +23,6 @@
       ./modules/print.nix
       ./modules/services.nix
 
-      ./misc/p43s.nix
-      ./misc/mega.nix
     ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
