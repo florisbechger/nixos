@@ -4,7 +4,7 @@
 
 1) Download the Graphical ISO image from https://nixos.org/download and install this in a virtual machine or on hardware (laptop as an example here).
 
-2) Create a working laptop/server with these example configuration.nix and modules:
+2) Create a working workstation/server with these example configuration.nix and modules:
 
 - Copy configuration.nix to your local /etc/nixos directory
 
