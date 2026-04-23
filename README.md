@@ -8,21 +8,22 @@
 
 - Copy configuration.nix to your local /etc/nixos directory
 
-3) Create a directory "modules" in this directory:
+3) Create a directory "modules" and "misc" in this directory:
 
-- sudo mkdir /etc/nixos/modules
+- sudo mkdir /etc/nixos/modules /etc/nixos/misc
 
-4) Copy all /module files to your local /etc/nixos/modules directory
+4) Copy all /module files to your local /etc/nixos/modules and /etc/nixos/misc directory
 
-5) Issue this command:
+5) Add, change or rename module/misc files when needed and reference them in your configuration.nix file.
+
+6) Issue this command:
 
 - sudo nixos-rebuild switch
 
-6) Notice
+7) Notice
 
+- Adjust your hardware-configuration.nix in /etc/nixos only if needed, otherwise do not overwrite it if it is allready configured!
 - Allways choose a 'boot' and 'laptop' or 'vm1' file in your configuration.nix & simply comment out what you want to install in configuration.nix
 - Virtual machines in KVM uses 'mbt' by default, for deploying on most hardware you can choose 'esp'.
-- Add, change or rename module files when needed and reference them in your configuration.nix file.
-- Adjust your hardware-configuration.nix in /etc/nixos only if needed, otherwise do not overwrite it if it is allready configured!
 
-7) Enjoy NixOS
+8) Enjoy NixOS
