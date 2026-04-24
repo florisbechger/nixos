@@ -1,0 +1,19 @@
+
+## Create custom ISO for booting a USB stick ##
+
+# https://www.youtube.com/watch?v=-G8mN6HJSZE
+# https://github.com/vimjoyer/custom-installer-video
+
+# Generate an ISO with myiso.nix configuration:
+
+nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=myiso.nix
+#nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./myiso.nix -o result"
+
+# Copy the new image to your USB stick by replacing sdX with the name of your device:
+
+dd if=result/iso/*.iso of=/dev/sdX status=progress
+sync
+
+# admin/passwd
+
+
