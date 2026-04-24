@@ -25,5 +25,6 @@
 - Adjust your hardware-configuration.nix in /etc/nixos only if needed, otherwise do not overwrite it if it is allready configured!
 - Allways choose a 'boot' and 'laptop' or 'vm1' file in your configuration.nix & simply comment out what you want to install in configuration.nix
 - Virtual machines in KVM uses 'mbt' by default, for deploying on most hardware you can choose 'esp'.
+- SSH is turned off by default, but can be turned on in the services.nix file: replace 'false' to 'true'
 
 8) Enjoy NixOS
