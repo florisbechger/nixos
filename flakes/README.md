@@ -23,5 +23,5 @@ Create a remote server on KVM
 7) Notice
 
 - Adjust your settings in flake.nix
-- SSH is turned on by default
-- 'flake.nix' can not find a file in the previous folder
+- SSH is turned on by default, also for root
+- Default username is 'admin', default password is 'passwd'
