@@ -6,7 +6,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = false;
-    settings.PermitRootLogin = "yes";
+    settings.PermitRootLogin = "no";
   };
 
   # List Services enabled.
