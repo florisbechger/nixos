@@ -12,7 +12,7 @@
 
 - sudo mkdir /etc/nixos/modules /etc/nixos/misc
 
-4) Copy all /module files to your local /etc/nixos/modules and /etc/nixos/misc directory
+4) Copy all /module files to your local /etc/nixos/modules and /misc files to your local /etc/nixos/misc directory
 
 5) Add, change or rename module/misc files when needed and reference them in your configuration.nix file.
 
