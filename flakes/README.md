@@ -30,4 +30,3 @@ Create a remote server on KVM
 
 - Adjust your settings in flake.nix
 - SSH is turned on by default, also for root
-- Default username is 'floris', default password is 'passwd'
