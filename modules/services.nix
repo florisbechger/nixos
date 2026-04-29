@@ -3,12 +3,6 @@
 
 {
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = false;
-    settings.PermitRootLogin = "no";
-  };
-
   # List Services enabled.
   services.thermald.enable = true; # Power settings
   services.fstrim.enable = true; # SSD disk TRIM support

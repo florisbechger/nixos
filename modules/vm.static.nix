@@ -9,6 +9,10 @@
 
 {
 
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
   # Enable networking.
   networking.enableIPv6 = false;
   networking.networkmanager.enable = true;
@@ -18,15 +22,10 @@
   networking.defaultGateway  = "192.168.0.1";
 
   # Use DHCP.
-  networking.interfaces.br0.useDHCP = false;
+  networking.interfaces.enp1s0.useDHCP = false;
 
-  # Bridged networking on NIC.
-  networking.bridges = {
-    "br0" = {
-      interfaces = [ "enp0s31f6" ];
-    };
-  };
-  networking.interfaces.br0.ipv4.addresses = [ {
+  # Static networking on NIC.
+  networking.interfaces.enp1s0.ipv4.addresses = [ {
     address = "192.168.0.110";
     prefixLength = 24;
   } ];

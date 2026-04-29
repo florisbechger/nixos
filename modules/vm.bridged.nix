@@ -23,7 +23,7 @@
   # Bridged networking on NIC.
   networking.bridges = {
     "br0" = {
-      interfaces = [ "enp0s31f6" ];
+      interfaces = [ "enp1s0" ];
     };
   };
   networking.interfaces.br0.ipv4.addresses = [ {

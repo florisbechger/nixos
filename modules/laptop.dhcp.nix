@@ -2,9 +2,9 @@
 { ... }:
 
 # Wireless laptop: wlp0s20f3
-# NIC laptop: enp0s31f6
 # Wireless NUC: ...
-# NIC nuc: enp86s0
+# NIC laptop: enp0s31f6
+# NIC NUC: enp86s0
 # NIC VM: enp1s0
 
 {
@@ -19,7 +19,7 @@
   networking.nameservers = [ "8.8.8.8" ];
 
   # Use DHCP.
-  networking.interfaces.wlp0s20f3.useDHCP = true; # Wireless laptop
-  networking.interfaces.enp0s31f6.useDHCP = true; # NIC laptop
+  networking.interfaces.wlp0s20f3.useDHCP = true;
+  networking.interfaces.enp0s31f6.useDHCP = true;
 
 }

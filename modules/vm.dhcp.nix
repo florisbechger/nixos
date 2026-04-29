@@ -18,16 +18,7 @@
   networking.networkmanager.enable = true;
   networking.nameservers = [ "8.8.8.8" ];
 
-  # Default Gateway.
-  networking.defaultGateway  = "192.168.0.1";
-
   # Use DHCP.
-  networking.interfaces.enp0s31f6.useDHCP = false;
-
-  # Static networking on NIC.
-  networking.interfaces.enp0s31f6.ipv4.addresses = [ {
-    address = "192.168.0.110";
-    prefixLength = 24;
-  } ];
+  networking.interfaces.enp1s0.useDHCP = true;
 
 }
