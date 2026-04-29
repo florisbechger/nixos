@@ -26,7 +26,7 @@ Create a remote server on KVM
 
 - nix run github:nix-community/nixos-anywhere -- floris@192.168.122.x --flake .#vm
 
-8) Notice
+8) Note
 
 - Adjust your settings in flake.nix
 - SSH is turned on by default, also for root
