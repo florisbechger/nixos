@@ -25,7 +25,7 @@
 
 - sudo nixos-rebuild switch
 
-8) Notice
+8) Note
 
 - Adjust your hardware-configuration.nix in /etc/nixos only if needed, otherwise do not overwrite it if it is allready configured!
 - Allways choose a 'boot' and 'laptop' or 'vm' file in your configuration.nix & simply comment out what you want to install in configuration.nix
