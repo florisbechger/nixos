@@ -13,7 +13,7 @@
 
 - Default username is 'floris', default password is 'passwd'
 
-4) Create a directory "modules" your local "/etc/nixos" directory
+4) Create a directory "modules" into your local "/etc/nixos" directory
 
 - sudo mkdir /etc/nixos/modules
 
