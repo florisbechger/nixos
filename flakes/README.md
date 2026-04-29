@@ -18,9 +18,15 @@ Create a remote server on KVM
 
 5) Copy all module/.nix files into "/etc/nixos/flakes/modules"
 
-6) follow example commands on flake.txt, change ip- and username in users.nix
+6) Change the "username" in users.nix
 
-7) Notice
+- Default username is 'floris', default password is 'passwd'
+
+7) follow example commands on flake.txt, change ip- and username
+
+- nix run github:nix-community/nixos-anywhere -- floris@192.168.122.x --flake .#vm
+
+8) Notice
 
 - Adjust your settings in flake.nix
 - SSH is turned on by default, also for root
