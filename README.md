@@ -9,7 +9,7 @@
 - Copy configuration.nix to your local "/etc/nixos" directory
 - Leave your allready default "hardware-configuration.nix" untouched
 
-3) Change the "username" in users.nix
+3) Change the "username" in "users.nix", "alsa.nix", "kvm.nix" and/or "podman.nix"
 
 - Default username is 'floris', default password is 'passwd'
 
