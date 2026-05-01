@@ -2,7 +2,7 @@
 
 # FLAKES
 
-Create a remote server on KVM, managed only through a local flake.nix
+Deploy a remote server on KVM, managed only through a local flake.nix
 
 1) Spin up a minimal NixOS VM change password on nixos user and copy its IP address
 
