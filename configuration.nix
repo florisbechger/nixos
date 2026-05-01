@@ -12,7 +12,7 @@
 
       ./modules/hostname.nix
       ./modules/system.nix
-      ./modules/laptop.dhcp.nix
+      ./modules/ws.dhcp.nix
       ./modules/services.nix
 
       ./modules/alsa.nix
