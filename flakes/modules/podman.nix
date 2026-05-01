@@ -23,7 +23,7 @@
     dive # look into docker image layers
     podman-tui # Terminal UI
     podman-desktop # Graphical UI
-    #docker-compose # start group of containers for dev
+    docker-compose # start group of containers for dev
     #podman-compose # start group of containers for dev
   ];
 
@@ -32,5 +32,19 @@
       "podman"
     ];
   };
+
+/*
+  # Run Podman containers as systemd services
+
+  {
+    virtualisation.oci-containers.backend = "podman";
+    virtualisation.oci-containers.containers = {
+      container-name = {
+        image = "container-image";
+        autoStart = true;
+        ports = [ "127.0.0.1:1234:1234" ];
+      };
+    };
+*/
 
 }
