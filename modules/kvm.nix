@@ -35,6 +35,12 @@
     };
   };
 
+  users.users.floris = {
+    extraGroups = [
+      "libvirtd"
+    ];
+  };
+
   # KVM Nested options.
   boot.extraModprobeConfig = "options kvm_intel nested=1";
 

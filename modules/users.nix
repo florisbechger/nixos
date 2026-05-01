@@ -11,7 +11,7 @@
   users.users.${user} = {
     isNormalUser = true;
     description = "${user}";
-    extraGroups = [ "audio" "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     initialPassword = "passwd";
     home  = "/home/${user}";
     createHome = true;

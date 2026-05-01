@@ -23,4 +23,11 @@
     #media-session.enable = true;
   };
 
+  users.users.floris = {
+    extraGroups = [
+      "audio"
+    ];
+  };
+
+
 }
