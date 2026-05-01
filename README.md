@@ -1,7 +1,6 @@
 # nixos
 
 # NixOS Workstation with remote Flake deploy on a VM
-# An example to get you started with NixOS, KVM and virtual machines
 
 1) Download the Graphical ISO image from https://nixos.org/download and install this in a virtual machine or on hardware (laptop as an example here).
 
