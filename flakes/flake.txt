@@ -16,24 +16,3 @@ nix run github:nix-community/nixos-anywhere -- --generate-hardware-config ./hard
 
 # Update Remote system with update flake.nix:
 nixos-rebuild switch --flake .#vm --target-host root@192.168.122.x
-
-## On Workstation:
-
-# Setup keys
-ssh-keygen -t ecdsa -b 521 -f ~/.ssh/floris
-ssh-copy-id -i ~/.ssh/floris.pub root@192.168.122.69
-
-# Setup in configuration.nix
-# Enable Flakes
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-## On Remote if nescesarry:
-umount /dev/vda1
-umount /dev/vda2
-umount /dev/vda3
-#wipefs -a /dev/vda # Wipe disk
-#wipefs -a /dev/nvme0n1 # Wipe disk
-
-# Get ISO examples:
-wget https://channels.nixos.org/nixos-25.11/latest-nixos-minimal-x86_64-linux.iso
-wget https://deb.debian.org/debian/dists/trixie/main/installer-amd64/current/images/netboot/mini.iso
