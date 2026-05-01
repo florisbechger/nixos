@@ -11,8 +11,8 @@
       ./modules/users.nix
 
       ./modules/ws.hostname.nix
-      ./modules/system.nix
       ./modules/ws.dhcp.nix
+      ./modules/system.nix
       ./modules/services.nix
 
       ./modules/alsa.nix
