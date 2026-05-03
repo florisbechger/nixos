@@ -18,9 +18,10 @@
 
 5) Copy all module/.nix files into "/etc/nixos/flakes/modules" or "~/flakes/modules"
 
-6) Change the "username" in "users.nix", "alsa.nix", "kvm.nix" and/or "podman.nix", 
+6) Change the "username" in "/etc/nixos/flakes/modules/users.nix" or "~/flakes/modules/users.nix"
 
-- Default username is 'floris', default password is 'passwd'
+- Default username is 'admin', can be changed in your own name
+- default password is 'passwd'
 
 7) follow example commands on flake.txt, change ip-address and username
 
