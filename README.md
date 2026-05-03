@@ -10,9 +10,10 @@
 - Copy configuration.nix to your local "/etc/nixos" directory
 - Leave your allready default "hardware-configuration.nix" untouched
 
-3) Change the "username" in "users.nix", "alsa.nix", "kvm.nix" and/or "podman.nix"
+3) Change the "username" in "users.nix"
 
-- Default username is 'floris', default password is 'passwd'
+- Default username is 'admin', can be changed in your own name
+- default password is 'passwd'
 
 4) Create a directory "modules" into your local "/etc/nixos" directory
 
