@@ -2,7 +2,7 @@
 
 # FLAKES
 
-1) Change networkconnectivity in "configuration.nix"
+1) Change networkconnectivity in "flake.nix"
 
 2) Change the "hostname" in "/etc/nixos/flakes/modules/vm.hostname.nix"
 
