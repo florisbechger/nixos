@@ -1,9 +1,9 @@
 
-{ config, ... }:
+{ ... }:
 
 {
 
   # Hostname.
-  networking.hostName = "ws";
+  networking.hostName = "workstation";
 
 }
