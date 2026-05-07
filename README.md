@@ -8,9 +8,9 @@
 
 - Default hostname is 'workstation'
 
-3) Change the "username" in "/etc/nixos/modules/users.nix"
+3) Change the "username" in "/etc/nixos/modules/admin.nix" and/or "/etc/nixos/modules/special.nix"
 
-- Default username is 'admin'
+- Default username is 'admin' and 'guest'
 - Default password is 'passwd'
 
 4) Issue this command:
