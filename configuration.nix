@@ -4,12 +4,17 @@
 {
 
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+
+      ./modules/default.nix
+      ./modules/admin.nix
+      ./modules/groups.admin.nix
+      ./modules/special.nix
+      ./modules/groups.special.nix
 
       ./modules/boot.esp.nix
       ./modules/ssh.disable.nix
-      ./modules/users.nix
 
       ./modules/ws.hostname.nix
       ./modules/ws.dhcp.nix
