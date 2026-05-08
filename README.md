@@ -1,23 +1,19 @@
 # nixos
 
-# NixOS Workstation with remote Flake deploy on a VM
+# NixOS Workstation
 
-1) Change networkconnectivity in "configuration.nix"
+1) Evaluate options in "configuration.nix"
 
-2) Change the "hostname" in "/etc/nixos/modules/ws.hostname.nix"
+2) Change the "username" in "/etc/nixos/modules/admin.nix" and/or "/etc/nixos/modules/special.nix"
 
-- Default hostname is 'workstation'
-
-3) Change the "username" in "/etc/nixos/modules/admin.nix" and/or "/etc/nixos/modules/special.nix"
-
-- Default username is 'admin' and 'guest'
+- Default username is 'admin'
 - Default password is 'passwd'
 
-4) Issue this command:
+3) Issue this command:
 
 - sudo nixos-rebuild switch
 
-5) Note
+4) Note
 
 - Do not overwrite your working hardware-configuration.nix in /etc/nixos, adjust only when needed
 - Simply comment out what you do not want to install in configuration.nix
