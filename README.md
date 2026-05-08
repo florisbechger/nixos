@@ -4,7 +4,7 @@
 
 1) Evaluate options in "configuration.nix"
 
-2) Change the "username" in "/etc/nixos/modules/admin.nix" and/or "/etc/nixos/modules/special.nix"
+2) Change the "username" in "/etc/nixos/modules/admin.nix" (and/or "/etc/nixos/modules/special.nix")
 
 - Default username is 'admin'
 - Default password is 'passwd'
