@@ -1,5 +1,5 @@
 
-# NixOS with remote Flake deploy on KVM
+# NixOS with Flake deploy on KVM
 
 # Virtual Machine (flake)
 
