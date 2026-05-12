@@ -19,3 +19,4 @@
 - For deploying on most hardware you can choose 'esp'.
 - Virtual machines in KVM use 'mbt' to boot properly in this setup
 - SSH is turned off by default, but can be turned on in the configuration.nix file: replace "ssh.disable.nix" to "ssh.enable.nix"
+- Change root password and login!
