@@ -16,7 +16,7 @@
 
 - Do not overwrite your working hardware-configuration.nix in /etc/nixos, adjust only when needed
 - Simply comment out what you do not want to install in configuration.nix
-- For deploying on most hardware you can choose 'esp'.
+- For deploying on most hardware you can choose 'esp'
 - Virtual machines in KVM use 'mbt' to boot properly in this setup
 - SSH is turned off by default, but can be turned on in the configuration.nix file: replace "ssh.disable.nix" to "ssh.enable.nix"
-- Change root password and login!
+- Change root password and login in "admin.default.nix"
