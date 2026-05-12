@@ -1,0 +1,16 @@
+
+# Initialize Flake:
+nix flake show
+nix flake update
+
+# Provision Remote on Workstation:
+nix run github:nix-community/nixos-anywhere -- admin@192.168.122.x --flake .#vm
+
+# Or, during Provisioning:
+nix run github:nix-community/nixos-anywhere -- admin@192.168.122.x --flake .#vm --generate-config
+
+# Regenerate hardware-configuration.nix on Remote system, usefull for external hardware:
+nixos-generate-config --show-hardware-config > /etc/nixos/hardware-configuration.nix
+
+# Update Remote system with updated flake.nix:
+nixos-rebuild switch --flake .#vm --target-host root@192.168.122.x
