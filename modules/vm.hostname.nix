@@ -2,8 +2,6 @@
 { ... }:
 
 {
-
   # Hostname.
   networking.hostName = "virtualmachine";
-
 }

@@ -1,11 +1,13 @@
+
 { pkgs, ... }:
 
-{
-  environment.systemPackages = with pkgs; [
-  clamav
-  ];
+  let
+    service = "clamav";
+  in
 
-  services.clamav = {
+{
+  # Enable ClamAV virusscanner.
+  services.${service} = {
     daemon.enable = true;
     updater.enable = true;
   };

@@ -2,8 +2,7 @@
 { pkgs, ... }:
 
 {
-
-  # Enable CUPS to print documents.
+  # Enable CUPS to find printers and print documents.
   services.printing.enable = true;
   services.printing.browsing = true;
   services.printing.drivers = [ pkgs.canon-cups-ufr2 ];
@@ -13,5 +12,4 @@
   services.avahi.publish.workstation = true;
   services.avahi.publish.addresses = true;
   services.avahi.openFirewall = true;
-
 }

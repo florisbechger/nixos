@@ -11,9 +11,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    clamtk
-    librewolf
-    tidal-hifi
+    angryipscanner
+    rpiboot
+    rpi-imager
+    virt-manager
   ];
 
 }

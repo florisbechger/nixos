@@ -2,8 +2,8 @@
 { ... }:
 
 {
+  # Second disk.
   disko.devices = {
-
     disk = {
 
       disk1 = {

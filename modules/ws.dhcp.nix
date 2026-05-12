@@ -8,7 +8,6 @@
 # NIC VM: enp1s0
 
 {
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -21,5 +20,4 @@
   # Use DHCP.
   networking.interfaces.wlp0s20f3.useDHCP = true;
   networking.interfaces.enp0s31f6.useDHCP = true;
-
 }

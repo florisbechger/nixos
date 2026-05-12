@@ -4,12 +4,17 @@
 let
   cfg = lib.mkOption {
     type = lib.types.str;
-    default = "floris";
-    description = "floris";
+    default = "admin";
+    description = "admin";
   };
 in
 
 {
+
+  imports =
+    [
+      ./admin.default.nix
+    ];
 
   options.users.admin = cfg;
 

@@ -2,7 +2,6 @@
 { pkgs, ... }:
 
 {
-
   # List Services enabled.
   services.thermald.enable = true; # Power settings
   services.fstrim.enable = true; # SSD disk TRIM support
@@ -11,5 +10,4 @@
 
   # List Services disabled.
   services.xserver.excludePackages = [ pkgs.xterm ];
-
 }

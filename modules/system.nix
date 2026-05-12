@@ -6,9 +6,6 @@
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
-  # Disable Root login.
-  #users.users.root.shell = "/sbin/nologin";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 

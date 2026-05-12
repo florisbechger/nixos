@@ -1,7 +1,8 @@
 
-{ ... }:
+{ pkgs, ... }:
 
 {
+  # System disk.
   disko.devices = {
     disk = {
       disk0 = {

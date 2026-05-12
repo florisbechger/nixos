@@ -8,7 +8,6 @@
 # NIC VM: enp1s0
 
 {
-
   # Enable networking.
   networking.enableIPv6 = false;
   networking.networkmanager.enable = true;
@@ -30,5 +29,4 @@
     address = "192.168.0.110";
     prefixLength = 24;
   } ];
-
 }

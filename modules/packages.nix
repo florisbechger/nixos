@@ -22,5 +22,4 @@
   #usbutils
   wget
   ];
-
 }
