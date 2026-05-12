@@ -14,6 +14,7 @@
 
 3) Note
 
+- Basically the same result as Workstation on hardware
 - Simply comment out what you do not want to install in "flake.nix"
 - Virtual machines in KVM use 'mbt' to boot properly in this setup
 - SSH is turned on by default
