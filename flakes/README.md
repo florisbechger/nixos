@@ -1,7 +1,6 @@
+# nixos
 
-# NixOS with Flake deploy on KVM
-
-# Virtual Machine (flake)
+# FLAKES
 
 1) Change the "username" in "~/flakes/modules/admin.nix"
 
@@ -14,8 +13,6 @@
 
 3) Note
 
-- Basically the same result as Workstation on hardware
-- Simply comment out what you do not want to install in "flake.nix"
+- Simply comment out what you do not want to install in flake.nix
 - Virtual machines in KVM use 'mbt' to boot properly in this setup
 - SSH is turned on by default
-- Change root password and login in "admin.default.nix"
