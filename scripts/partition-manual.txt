@@ -1,0 +1,90 @@
+
+# Ref: https://myme.no/posts/2019-07-01-nixos-into-the-deep-end.html#partitioning-with-parted
+# Ref: https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command
+# Ref: https://www.tweag.io/blog/2022-11-01-hard-user-separation-with-nixos
+
+# Change to root:
+sudo -i
+lsblk
+
+wipefs -a /dev/vda # Wipe disk
+wipefs -a /dev/nvme0n1 # Wipe disk
+
+#shred /dev/vda --iterations=1 --zero --verbose # Erase disk (takes a while)
+#shred /dev/nvme0n1 --iterations=1 --zero --verbose # Erase disk (takes a while)
+
+## Partitioning MBR ##
+parted /dev/vda -- mklabel msdos # MBR partition table
+parted /dev/vda -- mkpart primary fat32 1MiB 512MiB
+parted /dev/vda -- mkpart primary 512MiB 100%
+parted /dev/vda -- set 1 boot on
+fdisk -l
+
+## Setup LVM MBR ##
+pvcreate /dev/vda2
+vgcreate vgsys /dev/vda2
+lvcreate -n root vgsys -L 200GiB
+lvcreate -n data vgsys -l 100%FREE
+
+## Formatting MBR ##
+mkfs.vfat -n BOOT /dev/vda1 -F 32
+mkfs.ext4 -L root /dev/vgsys/root
+mkfs.ext4 -L data /dev/vgsys/data
+
+## Mounting MBR ##
+mount /dev/vgsys/root /mnt
+mkdir /data
+mount /dev/vgsys/data /data
+mkdir /mnt/boot
+mount /dev/vda1 /mnt/boot
+
+## Partitioning GPT ##
+parted /dev/nvme0n1 -- mklabel gpt
+parted /dev/nvme0n1 -- mkpart ESP fat32 1MiB 512MiB
+parted /dev/nvme0n1 -- set 1 esp on
+parted /devn/vme0n1 -- mkpart primary 512MiB 100%
+fdisk -l
+
+## Setup LVM GPT ##
+pvcreate /dev/nvme0n1p2
+vgcreate vgsys /dev/nvme0n1p2
+lvcreate -n root vgsys -L 200GiB
+lvcreate -n data vgsys -l 100%FREE
+
+## Formatting GPT ##
+mkfs.vfat -n BOOT /dev/nvme0n1p1 -F 32
+mkfs.ext4 -L root /dev/vgsys/root
+mkfs.ext4 -L data /dev/vgsys/data
+
+## Mounting GPT ##
+mount /dev/vgsys/root /mnt
+mkdir /data
+mount /dev/vgsys/data /data
+mkdir /mnt/boot
+mount /dev/vme0n1 /mnt/boot
+
+## SETUP ##
+
+## Configuration ##
+nixos-generate-config --root /mnt
+cd /mnt/etc/nixos
+
+## Reference ##
+https://nix.dev/manual/nix/2.28/installation/multi-user
+https://nixos.org/manual/nixos/stable/#sec-installation-manual
+
+## Installation ##
+nixos-install
+
+## Login (example) ##
+ssh floris@192.168.122.10
+
+## Misc. After config changes ##
+nixos-rebuild test # Not persistent after reboot
+nixos-rebuild switch # Persistent change after reboot
+
+## Garbage collection ##
+nix-collect-garbage # Clean previous profiles
+nix-collect-garbage -d # Clean previous profiles + configurations
+nix-store --optimise # Reclaim diskspace
+nixos-rebuild boot # Rebuild Boot Entries
