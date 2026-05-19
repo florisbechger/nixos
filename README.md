@@ -11,7 +11,9 @@
 
 - sudo nixos-rebuild switch
 
-3) Note
+3) Notes
+
+- Alpha phase
 
 - Do not overwrite your working hardware-configuration.nix in /etc/nixos, adjust only when needed
 - Simply comment out what you do not want to install in configuration.nix
