@@ -1,6 +1,7 @@
 
 { lib, ... }:
 
+# Adjust username and decription.
 let
   cfg = lib.mkOption {
     type = lib.types.str;

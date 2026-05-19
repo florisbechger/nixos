@@ -6,6 +6,7 @@
 
 {
 
+  # Add user from "admin.nix" to allow interaction with the daemon.
   users.users.${config.users.admin}.extraGroups = [ "libvirtd" ];
 
   # Create group
@@ -24,6 +25,9 @@
     #];
   };
 
+  # Load appropiate kernel module.
+  boot.kernelModules = [ "kvm-intel" ]; # "kvm-amd"
+
   # System packages.
   environment.systemPackages = with pkgs; [
   bridge-utils
@@ -38,7 +42,7 @@
   # Virtualisation (https://nixos.wiki/wiki/Libvirt ; https://mynixos.com/options/virtualisation.libvirtd).
   virtualisation.libvirtd = {
     enable = true;
-    onBoot = "start";
+    onBoot = "ignore";
     onShutdown = "shutdown";
     parallelShutdown = 0;
     shutdownTimeout = 30;
@@ -57,20 +61,10 @@
     };
   };
 
-  # KVM Nested options.
-  boot.extraModprobeConfig = "options kvm_intel nested=1";
-
-  # KVM Options.
+  # KVM options.
   programs.dconf.enable = true;
 
-/*
-  # Run bash scripts.
-  system.activationScripts.myScript = ''
-    echo "Running post-storage script..."
-    ${../scripts/storage.sh}
-    echo "Running post-networks script..."
-    ${../scripts/networks.sh}
-  '';
-*/
+  # KVM nested options.
+  boot.extraModprobeConfig = "options kvm_intel nested=1";
 
 }

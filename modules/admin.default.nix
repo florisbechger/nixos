@@ -11,7 +11,7 @@
   # Configure admin.
   users.users.${config.users.admin} = {
     name = "${config.users.admin}";
-    group = "${config.users.admin}"; # Assign user to identical user & groupname
+    group = "${config.users.admin}";
     extraGroups = [ "wheel" "networkmanager" ];
     isNormalUser = true;
     description = "${config.users.admin}";
@@ -27,7 +27,7 @@
   #users.users.root.shell = "/sbin/nologin";
 
   # Allow the user to log in as root with a password.
-  users.users.root.initialPassword = "passwd"; # Change after deploy
+  #users.users.root.initialPassword = "passwd"; # Change after deploy
 
   # Don't require sudo/root to `reboot` or `poweroff`.
   security.polkit.enable = true;
