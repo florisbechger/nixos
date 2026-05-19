@@ -1,10 +1,7 @@
 
-#! /usr/bin/env nix-shell
+#!/run/current-system/sw/bin/bash
 
 # Run this script to create alternative Storage locations on KVM
-
-systemctl stop libvirt*
-systemctl restart libvirtd
 
 # Set Storage pools.
 if ! ls /data/backup > /dev/null 2>&1; then mkdir -p /data/backup; fi
@@ -35,6 +32,6 @@ virsh pool-start backup
 virsh pool-start iso
 
 # Enable Storage pools.
-#virsh pool-autostart default
-#virsh pool-autostart backup
-#virsh pool-autostart iso
+virsh pool-autostart default
+virsh pool-autostart backup
+virsh pool-autostart iso

@@ -1,24 +1,21 @@
 
-#! /usr/bin/env nix-shell
+#!/run/current-system/sw/bin/bash
+# (#! /usr/bin/env nix-shell)
 
 # Run this script to create multiple networks on KVM
 
-# Restart KVM
-systemctl stop libvirt*
-systemctl restart libvirtd
-
 # BRIDGE
-cat << EOF > /tmp/virbr10.xml
+cat << EOF > /tmp/bridge.xml
   <network>
     <name>bridge</name>
-    <bridge name="virbr10"/>
+    <bridge name="bridge"/>
     <forward mode="bridge"/>
     <bridge name="bridge"/>
   </network>
 EOF
 
 # CONTROL
-cat << EOF > /tmp/virbr11.xml
+cat << EOF > /tmp/control.xml
   <network>
     <name>control</name>
     <forward mode="nat">
@@ -26,7 +23,7 @@ cat << EOF > /tmp/virbr11.xml
         <port start="22" end="65535"/>
       </nat>
     </forward>
-    <bridge name="virbr11" stp="on" delay="0"/>
+    <bridge name="control" stp="on" delay="0"/>
     <ip address="10.10.0.1" netmask="255.255.255.0">
       <dhcp>
         <range start="10.10.0.10" end="10.10.0.254"/>
@@ -36,7 +33,7 @@ cat << EOF > /tmp/virbr11.xml
 EOF
 
 # PRIVATE
-cat << EOF > /tmp/virbr12.xml
+cat << EOF > /tmp/private.xml
   <network>
     <name>private</name>
     <forward mode="nat">
@@ -44,7 +41,7 @@ cat << EOF > /tmp/virbr12.xml
         <port start="22" end="65535"/>
       </nat>
     </forward>
-    <bridge name="virbr12" stp="on" delay="0"/>
+    <bridge name="private" stp="on" delay="0"/>
     <ip address="10.20.0.1" netmask="255.255.255.0">
       <dhcp>
         <range start="10.20.0.10" end="10.20.0.254"/>
@@ -54,7 +51,7 @@ cat << EOF > /tmp/virbr12.xml
 EOF
 
 # STORAGE
-cat << EOF > /tmp/virbr13.xml
+cat << EOF > /tmp/storage.xml
   <network>
     <name>storage</name>
     <forward mode="nat">
@@ -62,7 +59,7 @@ cat << EOF > /tmp/virbr13.xml
         <port start="22" end="65535"/>
       </nat>
     </forward>
-    <bridge name="virbr13" stp="on" delay="0"/>
+    <bridge name="storage" stp="on" delay="0"/>
     <ip address="10.30.0.1" netmask="255.255.255.0">
       <dhcp>
         <range start="10.30.0.10" end="10.30.0.254"/>
@@ -72,7 +69,7 @@ cat << EOF > /tmp/virbr13.xml
 EOF
 
 # PUBLIC
-cat << EOF > /tmp/virbr15.xml
+cat << EOF > /tmp/public.xml
   <network>
     <name>public</name>
     <forward mode="nat">
@@ -80,7 +77,7 @@ cat << EOF > /tmp/virbr15.xml
         <port start="22" end="65535"/>
       </nat>
     </forward>
-    <bridge name="virbr15" stp="on" delay="0"/>
+    <bridge name="public" stp="on" delay="0"/>
     <ip address="10.50.0.1" netmask="255.255.255.0">
       <dhcp>
         <range start="10.50.0.10" end="10.50.0.254"/>
@@ -89,17 +86,17 @@ cat << EOF > /tmp/virbr15.xml
   </network>
 EOF
 
-virsh net-define /tmp/virbr10.xml
-virsh net-define /tmp/virbr11.xml
-virsh net-define /tmp/virbr12.xml
-virsh net-define /tmp/virbr13.xml
-virsh net-define /tmp/virbr15.xml
+virsh net-define /tmp/bridge.xml
+virsh net-define /tmp/control.xml
+virsh net-define /tmp/private.xml
+virsh net-define /tmp/storage.xml
+virsh net-define /tmp/public.xml
 
-rm /tmp/virbr10.xml
-rm /tmp/virbr11.xml
-rm /tmp/virbr12.xml
-rm /tmp/virbr13.xml
-rm /tmp/virbr15.xml
+rm /tmp/bridge.xml
+rm /tmp/control.xml
+rm /tmp/private.xml
+rm /tmp/storage.xml
+rm /tmp/public.xml
 
 virsh net-destroy default
 
@@ -109,20 +106,16 @@ virsh net-destroy default
 
 virsh net-start control
 virsh net-autostart control
-#ip link set control up
+ip link set control up
 
 virsh net-start private
 virsh net-autostart private
-#ip link set private up
+ip link set private up
 
 virsh net-start storage
 virsh net-autostart storage
-#ip link set storage up
+ip link set storage up
 
 virsh net-start public
 virsh net-autostart public
-#ip link set public up
-
-# Restart KVM
-systemctl stop libvirt*
-systemctl restart libvirtd
+ip link set public up

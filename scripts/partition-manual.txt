@@ -7,27 +7,33 @@
 sudo -i
 lsblk
 
-wipefs -a /dev/vda # Wipe disk
-wipefs -a /dev/nvme0n1 # Wipe disk
 
-#shred /dev/vda --iterations=1 --zero --verbose # Erase disk (takes a while)
-#shred /dev/nvme0n1 --iterations=1 --zero --verbose # Erase disk (takes a while)
+#### MBR ####
+
+## Set disk ##
+DISK=/dev/vda
+
+## Wipe disk ##
+wipefs -a "$DISK"  
+
+## Erase disk (takes a while) ##
+#shred "$DISK" --iterations=1 --zero --verbose
 
 ## Partitioning MBR ##
-parted /dev/vda -- mklabel msdos # MBR partition table
-parted /dev/vda -- mkpart primary fat32 1MiB 512MiB
-parted /dev/vda -- mkpart primary 512MiB 100%
-parted /dev/vda -- set 1 boot on
+parted "$DISK" -- mklabel msdos # MBR partition table
+parted "$DISK" -- mkpart primary fat32 1MiB 512MiB
+parted "$DISK" -- mkpart primary 512MiB 100%
+parted "$DISK" -- set 1 boot on
 fdisk -l
 
 ## Setup LVM MBR ##
-pvcreate /dev/vda2
-vgcreate vgsys /dev/vda2
+pvcreate "$DISK"2
+vgcreate vgsys "$DISK"2
 lvcreate -n root vgsys -L 200GiB
 lvcreate -n data vgsys -l 100%FREE
 
 ## Formatting MBR ##
-mkfs.vfat -n BOOT /dev/vda1 -F 32
+mkfs.vfat -n BOOT "$DISK"1 -F 32
 mkfs.ext4 -L root /dev/vgsys/root
 mkfs.ext4 -L data /dev/vgsys/data
 
@@ -36,23 +42,35 @@ mount /dev/vgsys/root /mnt
 mkdir /data
 mount /dev/vgsys/data /data
 mkdir /mnt/boot
-mount /dev/vda1 /mnt/boot
+mount "$DISK"1 /mnt/boot
+
+
+#### UEFI ####
+
+## Set disk ##
+DISK=/dev/nvme0n1
+
+## Wipe disk ##
+wipefs -a "$DISK"
+
+## Erase disk (takes a while) ##
+#shred "$DISK" --iterations=1 --zero --verbose
 
 ## Partitioning GPT ##
-parted /dev/nvme0n1 -- mklabel gpt
-parted /dev/nvme0n1 -- mkpart ESP fat32 1MiB 512MiB
-parted /dev/nvme0n1 -- set 1 esp on
-parted /devn/vme0n1 -- mkpart primary 512MiB 100%
+parted "$DISK" -- mklabel gpt
+parted "$DISK" -- mkpart ESP fat32 1MiB 512MiB
+parted "$DISK" -- set 1 esp on
+parted "$DISK" -- mkpart primary 512MiB 100%
 fdisk -l
 
 ## Setup LVM GPT ##
-pvcreate /dev/nvme0n1p2
-vgcreate vgsys /dev/nvme0n1p2
-lvcreate -n root vgsys -L 200GiB
+pvcreate "$DISK"p2
+vgcreate vgsys "$DISK"p2
+lvcreate -n root vgsys -L 160GiB
 lvcreate -n data vgsys -l 100%FREE
 
 ## Formatting GPT ##
-mkfs.vfat -n BOOT /dev/nvme0n1p1 -F 32
+mkfs.vfat -n BOOT "$DISK"p1 -F 32
 mkfs.ext4 -L root /dev/vgsys/root
 mkfs.ext4 -L data /dev/vgsys/data
 
@@ -61,7 +79,7 @@ mount /dev/vgsys/root /mnt
 mkdir /data
 mount /dev/vgsys/data /data
 mkdir /mnt/boot
-mount /dev/vme0n1 /mnt/boot
+mount "$DISK"p1 /mnt/boot
 
 ## SETUP ##
 
