@@ -1,7 +1,8 @@
+## On Workstation:
 
 # Setup keys
-ssh-keygen -t ecdsa -b 521 -f ~/.ssh/admin
-ssh-copy-id -i ~/.ssh/admin.pub root@192.168.122.69
+ssh-keygen -t ecdsa -b 521 -f ~/.ssh/floris
+ssh-copy-id -i ~/.ssh/floris.pub root@192.168.122.69
 
 ## Umount and/or Wipe on Remote if nescesarry:
 umount /dev/vda1
