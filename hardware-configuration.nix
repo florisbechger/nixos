@@ -24,7 +24,7 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E9DE-2CE6";
+    { device = "/dev/disk/by-uuid/92C8-2F07";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
@@ -33,8 +33,11 @@
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 32*1024;
+    options = [ "discard" ]; # enable trim
+    randomEncryption.enable = true; # generating a new key on each boot, makes hibernation impossible
   } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
 }
