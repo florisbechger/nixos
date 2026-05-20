@@ -2,7 +2,6 @@
 { pkgs, config, ... }:
 
 {
-
   # Create identical groupname to user (more secure).
   users.groups.${config.users.admin} = {
     name = "${config.users.admin}";
@@ -31,5 +30,4 @@
 
   # Don't require sudo/root to `reboot` or `poweroff`.
   security.polkit.enable = true;
-
 }
