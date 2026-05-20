@@ -14,5 +14,4 @@
   # Initial password for root.
   # Change after deploy!
   users.users.root.initialPassword = "passwd"; 
-
 }
