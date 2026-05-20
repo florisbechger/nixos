@@ -4,7 +4,7 @@
 {
   disko.devices = {
     disk = {
-      # First disk
+      # System disk
       disk0 = {
         device = "/dev/nvme0n1";
         type = "disk";
