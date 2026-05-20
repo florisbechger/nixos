@@ -5,9 +5,8 @@
   # Second disk.
   disko.devices = {
     disk = {
-
       disk1 = {
-        device = "/dev/nvme0n1"; # Second disk on NUC
+        device = "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";
@@ -20,12 +19,11 @@
                 format = "ext4";
                 mountpoint = "/data";
 
-                };
               };
             };
           };
         };
       };
-
+    };
   };
 }
