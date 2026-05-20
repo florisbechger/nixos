@@ -5,7 +5,7 @@
   # Assign admin to audio group.
   users.users.${config.users.admin}.extraGroups = [ "audio" ];
 
-  # Install extra utility.
+  # Install packages in system profile.
   environment.systemPackages = with pkgs; [
     alsa-utils
   ];
