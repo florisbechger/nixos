@@ -32,6 +32,6 @@
       ./modules/flakes.nix
       ./modules/kvm.nix
 
+      ./misc/github-desktop.nix
     ];
-
 }
