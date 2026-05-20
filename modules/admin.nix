@@ -1,7 +1,7 @@
 
 { lib, ... }:
 
-# Adjust username and decription.
+# Adjust username and/or description.
 let
   cfg = lib.mkOption {
     type = lib.types.str;
@@ -9,14 +9,11 @@ let
     description = "admin";
   };
 in
-
 {
-
   imports =
     [
       ./admin.default.nix
     ];
 
   options.users.admin = cfg;
-
 }
