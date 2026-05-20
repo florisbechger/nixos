@@ -2,9 +2,9 @@
 { pkgs, ... }:
 
 {
+  # System disk.
   disko.devices = {
     disk = {
-      # System disk
       disk0 = {
         device = "/dev/nvme0n1";
         type = "disk";
