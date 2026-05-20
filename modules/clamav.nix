@@ -4,7 +4,6 @@
 let
   service = "clamav";
 in
-
 {
   # Enable ClamAV virusscanner.
   services.${service} = {
