@@ -17,7 +17,7 @@
             ESP = {
               name = "ESP";
               size = "512M";
-              type = "EF00"; # for Grub
+              type = "EF00"; # for grub ESP
               content = {
                 type = "filesystem";
                 format = "vfat";
