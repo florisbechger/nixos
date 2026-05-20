@@ -2,7 +2,6 @@
 { pkgs, ... }:
 
 {
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -12,5 +11,4 @@
     librewolf
     tidal-hifi
   ];
-
 }
