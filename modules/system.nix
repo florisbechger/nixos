@@ -2,7 +2,6 @@
 { pkgs, ... }:
 
 {
-
   # Avoid swapping as much as possible.
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
