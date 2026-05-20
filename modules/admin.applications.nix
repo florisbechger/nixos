@@ -5,8 +5,7 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Install packages in system profile.
   environment.systemPackages = with pkgs; [
     angryipscanner
     rpiboot
