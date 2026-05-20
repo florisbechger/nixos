@@ -5,13 +5,15 @@
   # Assign admin to audio group.
   users.users.${config.users.admin}.extraGroups = [ "audio" ];
 
+  # Install extra utility.
   environment.systemPackages = with pkgs; [
     alsa-utils
   ];
 
-  # Enable sound with pipewire.
+  # Disable pulseaudio.
   services.pulseaudio.enable = false;
 
+  # Enable sound with pipewire.
   services.pipewire = {
     enable = true;
     alsa.enable = true;
