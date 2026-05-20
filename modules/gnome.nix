@@ -18,8 +18,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Install packages in system profile.
   environment.systemPackages = with pkgs; [
   gnome-tweaks
   #gnomeExtensions.ip-finder
@@ -41,5 +40,4 @@
   evolution
   evolution-data-server
   ];
-
 }
