@@ -2,7 +2,7 @@
 { pkgs, ... }:
 
 {
-  #Enable the X11 windowing system.
+  # Disable the X11 windowing system.
   services.xserver.enable = false;
 
   # Enable the GNOME Desktop Environment.
