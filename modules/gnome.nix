@@ -23,6 +23,7 @@
   environment.systemPackages = with pkgs; [
   gnome-tweaks
   #gnomeExtensions.ip-finder
+  gnomeExtensions.dash-to-panel
   gnomeExtensions.transparent-window-moving
   gnomeExtensions.transparent-top-bar
   ];
