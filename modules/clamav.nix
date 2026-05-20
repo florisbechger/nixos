@@ -1,9 +1,9 @@
 
 { pkgs, ... }:
 
-  let
-    service = "clamav";
-  in
+let
+  service = "clamav";
+in
 
 {
   # Enable ClamAV virusscanner.
