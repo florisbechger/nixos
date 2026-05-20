@@ -2,8 +2,6 @@
 { pkgs, ... }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Install firefox.
   programs.firefox.enable = true;
