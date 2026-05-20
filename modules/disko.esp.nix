@@ -1,10 +1,7 @@
 
-# https://github.com/nix-community/disko
-
 { pkgs, ... }:
 
 {
-
   disko.devices = {
     disk = {
       # First disk
